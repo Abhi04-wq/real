@@ -1,0 +1,658 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=DM+Mono:ital,wght@0,400;0,500;1,400&family=Outfit:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600;1,700&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,600&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+@import 'tailwindcss';
+@plugin 'lightswind/plugin';
+
+@theme {
+  --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-mono: 'Space Grotesk', 'DM Mono', monospace;
+  --font-editorial: 'Playfair Display', 'Cormorant Garamond', Georgia, serif;
+  --font-serif: 'Playfair Display', 'Cormorant Garamond', Georgia, serif;
+  --font-playfair: 'Playfair Display', Georgia, serif;
+  --font-cormorant: 'Cormorant Garamond', Georgia, serif;
+  --font-outfit: 'Outfit', sans-serif;
+  --font-jakarta: 'Plus Jakarta Sans', sans-serif;
+  --font-dm: 'Space Grotesk', 'DM Mono', monospace;
+
+  /* Real Estate Design System Color Tokens */
+  --color-brand-bg: #F7F7F2;
+  --color-brand-panel: #FFFFFF;
+  --color-brand-primary: #176B5B;
+  --color-brand-primary-hover: #115044;
+  --color-brand-secondary: #DCEBE5;
+  --color-brand-text: #1C2421;
+  --color-brand-muted: #6B746F;
+  --color-brand-border: #E4E7E5;
+  --color-brand-success: #2E7D5B;
+  --color-brand-warning: #C98A24;
+  --color-brand-error: #C65353;
+}
+
+:root {
+  --bg-main: #F7F7F2;
+  --bg-panel: #FFFFFF;
+  --primary: #176B5B;
+  --primary-hover: #115044;
+  --secondary-accent: #DCEBE5;
+  --text-main: #1C2421;
+  --text-muted: #6B746F;
+  --border-soft: #E4E7E5;
+  --status-success: #2E7D5B;
+  --status-warning: #C98A24;
+  --status-error: #C65353;
+
+  /* Executive Deep Enterprise Midnight-Obsidian & Steel Blue Theme */
+  --theme-app-bg: #0B0F17;
+  --theme-sidebar-bg: #080C13;
+  --theme-content-bg: #0F1622;
+  --theme-card-surface: #172235;
+  --theme-card-elevated: #1D2A3D;
+  --theme-surface-secondary: #243247;
+  --theme-text-primary: #F0F4FA;
+  --theme-text-secondary: #9BA9BC;
+  --theme-accent-primary: #86A9D8;
+  --theme-border: #29374B;
+  --theme-status-positive: #70C6A5;
+  --theme-status-warning: #E5B86B;
+  --theme-status-error: #E4777D;
+
+  /* Compatibility Aliases */
+  --obsidian-main: #0B0F17;
+  --obsidian-sidebar: #080C13;
+  --obsidian-content: #0F1622;
+  --obsidian-card: #172235;
+  --obsidian-elevated: #1D2A3D;
+  --accent-burgundy: #243247;
+  --accent-interactive: #86A9D8;
+  --text-platinum: #F0F4FA;
+  --text-secondary-aubergine: #9BA9BC;
+  --border-aubergine: #29374B;
+  --status-luxury-success: #70C6A5;
+  --status-luxury-warning: #E5B86B;
+  --status-luxury-error: #E4777D;
+}
+
+/* Global Root & Body */
+body {
+  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  color: #1C2421;
+  background-color: #F7F7F2;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Financial & Stat Font */
+.font-mono-numbers {
+  font-family: 'Space Grotesk', 'DM Mono', monospace;
+  font-variant-numeric: tabular-nums;
+}
+
+/* Editorial & Luxury Typography System */
+.font-editorial {
+  font-family: 'Playfair Display', 'Cormorant Garamond', Georgia, serif;
+  letter-spacing: -0.015em;
+  text-rendering: optimizeLegibility;
+}
+
+.font-editorial-cormorant {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  letter-spacing: -0.01em;
+}
+
+.font-editorial-italic {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-style: italic;
+}
+
+.font-outfit {
+  font-family: 'Outfit', sans-serif;
+  letter-spacing: -0.01em;
+}
+
+/* Custom 8xl container max-width: 1440px / 90rem */
+.max-w-8xl {
+  max-width: 90rem !important;
+}
+
+/* Design System Component Utilities */
+.real-card {
+  background-color: #FFFFFF;
+  border: 1px solid #E4E7E5;
+  border-radius: 14px;
+  box-shadow: 0 1px 3px 0 rgba(28, 36, 33, 0.03);
+}
+
+.real-card:hover {
+  border-color: #D1D6D3;
+  box-shadow: 0 4px 12px 0 rgba(28, 36, 33, 0.05);
+}
+
+.btn-primary {
+  background-color: #176B5B;
+  color: #FFFFFF;
+  font-weight: 600;
+  border-radius: 10px;
+  padding: 0.5rem 1rem;
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+
+.btn-primary:hover {
+  background-color: #115044;
+}
+
+.btn-secondary {
+  background-color: #FFFFFF;
+  color: #176B5B;
+  border: 1px solid #E4E7E5;
+  font-weight: 600;
+  border-radius: 10px;
+  padding: 0.5rem 1rem;
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+
+.btn-secondary:hover {
+  background-color: #F7F7F2;
+  border-color: #D1D6D3;
+}
+
+.btn-soft {
+  background-color: #DCEBE5;
+  color: #176B5B;
+  font-weight: 600;
+  border-radius: 10px;
+  padding: 0.5rem 1rem;
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+
+.btn-soft:hover {
+  background-color: #CCE3DC;
+}
+
+.btn-danger {
+  background-color: #FDF2F2;
+  color: #C65353;
+  border: 1px solid #F8D7D7;
+  font-weight: 600;
+  border-radius: 10px;
+  padding: 0.5rem 1rem;
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+
+.btn-danger:hover {
+  background-color: #FAE8E8;
+}
+
+/* Forms & Inputs */
+.real-input {
+  background-color: #FFFFFF;
+  border: 1px solid #E4E7E5;
+  color: #1C2421;
+  border-radius: 10px;
+  padding: 0.5rem 0.75rem;
+  font-size: 0.875rem;
+  outline: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.real-input::placeholder {
+  color: #6B746F;
+}
+
+.real-input:focus {
+  border-color: #176B5B;
+  box-shadow: 0 0 0 2px rgba(23, 107, 91, 0.15);
+}
+
+/* Subtle Architectural Grid Pattern with warm off-white */
+.bg-arch-grid {
+  background-color: #FFFFFF;
+  background-image:
+    linear-gradient(#E4E7E5 1px, transparent 1px),
+    linear-gradient(90deg, #E4E7E5 1px, transparent 1px);
+  background-size: 60px 60px;
+}
+
+.bg-arch-grid-subtle {
+  background-color: #F7F7F2;
+  background-image:
+    linear-gradient(rgba(228, 231, 229, 0.6) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(228, 231, 229, 0.6) 1px, transparent 1px);
+  background-size: 60px 60px;
+}
+
+/* =========================================================
+   Professional High-Level Table Styles & Micro-Animations
+   ========================================================= */
+
+@keyframes tableRowEntrance {
+  0% {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes tableShimmerWave {
+  0% {
+    background-position: -200% 0;
+  }
+
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.table-row-animate {
+  animation: tableRowEntrance 0.32s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.table-shimmer-bar {
+  background: linear-gradient(90deg, rgba(228, 231, 229, 0.4) 25%, rgba(220, 235, 229, 0.7) 50%, rgba(228, 231, 229, 0.4) 75%);
+  background-size: 250% 100%;
+  animation: tableShimmerWave 2s infinite linear;
+}
+
+/* Premium Pro Table Container (Super Admin Command Center Standard) */
+.table-pro-container {
+  background: #172235;
+  border: 1px solid #29374B;
+  border-radius: 1rem;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.4);
+  overflow: hidden;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.table-pro-container:hover {
+  border-color: #384A63;
+  box-shadow: 0 20px 48px rgba(0, 0, 0, 0.55);
+}
+
+/* Interactive Row with Left Accent Pill and Smooth Highlight */
+.table-pro-row {
+  background-color: #141E2F;
+  color: #F0F4FA;
+  transition: background-color 0.18s ease;
+}
+
+.table-pro-row:nth-child(even) {
+  background-color: #172235;
+}
+
+.table-pro-row:hover {
+  background-color: #1D2A3D !important;
+}
+
+.table-pro-row td:first-child {
+  transition: box-shadow 0.2s ease;
+}
+
+.table-pro-row:hover td:first-child {
+  box-shadow: inset 3.5px 0 0 0 #D6A85F;
+}
+
+/* Custom Table Scrollbar */
+.table-pro-container::-webkit-scrollbar {
+  height: 6px;
+  width: 6px;
+}
+
+.table-pro-container::-webkit-scrollbar-track {
+  background: #0F1622;
+}
+
+.table-pro-container::-webkit-scrollbar-thumb {
+  background: #29374B;
+  border-radius: 9999px;
+}
+
+.table-pro-container::-webkit-scrollbar-thumb:hover {
+  background: #D6A85F;
+}
+
+/* Premium Slide-Over Drawer Animations */
+@keyframes drawerSlideIn {
+  from {
+    transform: translateX(100%);
+    opacity: 0.85;
+  }
+
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes drawerFadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+.drawer-animate-in {
+  animation: drawerSlideIn 0.32s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.drawer-backdrop-animate {
+  animation: drawerFadeIn 0.22s ease-out forwards;
+}
+
+.drawer-content-scroll::-webkit-scrollbar {
+  width: 5px;
+}
+
+.drawer-content-scroll::-webkit-scrollbar-track {
+  background: #F7F7F2;
+}
+
+.drawer-content-scroll::-webkit-scrollbar-thumb {
+  background: #D1D6D3;
+  border-radius: 9999px;
+}
+
+.drawer-content-scroll::-webkit-scrollbar-thumb:hover {
+  background: #176B5B;
+}
+
+/* Single Container enclosing all Sidebar Icons — Clean, elegant border, no glow */
+.sidebar-nav-container-glow {
+  position: relative;
+  background: #FFFFFF;
+  border-radius: 1.125rem;
+  border: 1px solid #E2E8F0;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.04);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.sidebar-nav-container-glow:hover {
+  border-color: #CBD5E1;
+  box-shadow: 0 2px 5px -1px rgba(0, 0, 0, 0.06);
+}
+
+/* ---- 3D icon buttons inside tray (targets NavLink <a>) — no glow, depth only ---- */
+.sidebar-nav-container-glow a {
+  position: relative;
+  transform-style: preserve-3d;
+  color: #000000 !important;
+  background: linear-gradient(180deg, #FFFFFF 0%, #ECEFED 100%) !important;
+  border: 1px solid #E1E5E3 !important;
+  box-shadow:
+    inset 0 1px 0 0 #FFFFFF,
+    inset 0 -2px 3px 0 rgba(28, 36, 33, 0.06),
+    0 1px 2px 0 rgba(28, 36, 33, 0.08),
+    0 3px 7px -1px rgba(28, 36, 33, 0.14) !important;
+  transform: translateY(0);
+  transition: transform 0.18s ease, box-shadow 0.18s ease, background 0.18s ease !important;
+}
+
+.sidebar-nav-container-glow a svg {
+  color: #000000 !important;
+  filter: none;
+}
+
+/* bottom thickness edge for extruded look */
+.sidebar-nav-container-glow a::after {
+  content: "";
+  position: absolute;
+  inset: auto 6px -4px 6px;
+  height: 8px;
+  border-radius: 9999px;
+  background: rgba(28, 36, 33, 0.10);
+  filter: blur(5px);
+  opacity: 0.55;
+  z-index: -1;
+  transition: opacity 0.18s ease;
+}
+
+.sidebar-nav-container-glow a:hover {
+  transform: translateY(-2px);
+  color: #000000 !important;
+  border-color: #D5DBD8 !important;
+  box-shadow:
+    inset 0 1px 0 0 #FFFFFF,
+    inset 0 -2px 3px 0 rgba(28, 36, 33, 0.05),
+    0 2px 3px 0 rgba(28, 36, 33, 0.07),
+    0 8px 16px -3px rgba(28, 36, 33, 0.18) !important;
+}
+
+.sidebar-nav-container-glow a:hover svg {
+  color: #000000 !important;
+}
+
+.sidebar-nav-container-glow a:hover::after {
+  opacity: 0.8;
+}
+
+/* active = pressed 3D emerald block — no outer glow */
+.sidebar-nav-container-glow a[aria-current="page"] {
+  background: linear-gradient(180deg, #1A7A66 0%, #0F5143 55%, #0B3D33 100%) !important;
+  border-color: #082E26 !important;
+  color: #FFFFFF !important;
+  transform: translateY(1px);
+  box-shadow:
+    inset 0 1px 0 0 rgba(255, 255, 255, 0.28),
+    inset 0 -3px 6px 0 rgba(0, 0, 0, 0.28),
+    inset 0 2px 6px 0 rgba(0, 0, 0, 0.22),
+    0 1px 2px 0 rgba(28, 36, 33, 0.30),
+    0 6px 14px -2px rgba(28, 36, 33, 0.35) !important;
+}
+
+.sidebar-nav-container-glow a[aria-current="page"]::after {
+  inset: auto 8px -5px 8px;
+  background: rgba(28, 36, 33, 0.28);
+  filter: blur(7px);
+  opacity: 0.7;
+}
+
+.sidebar-nav-container-glow a[aria-current="page"] svg {
+  color: #FFFFFF !important;
+  filter: none;
+}
+
+/* ---- 3D text-label cards (sibling column next to tray) — text pure black ---- */
+.sidebar-nav-container-glow + div a {
+  position: relative;
+  color: #000000 !important;
+  background: linear-gradient(180deg, #FFFFFF 0%, #F0F3F2 100%) !important;
+  border: 1px solid #E4E7E5 !important;
+  box-shadow:
+    inset 0 1px 0 0 #FFFFFF,
+    0 1px 2px 0 rgba(28, 36, 33, 0.06),
+    0 3px 8px -2px rgba(28, 36, 33, 0.10) !important;
+  transform: translateY(0);
+  transition: transform 0.18s ease, box-shadow 0.18s ease !important;
+  overflow: hidden;
+}
+
+.sidebar-nav-container-glow + div a span {
+  color: #000000 !important;
+}
+
+.sidebar-nav-container-glow + div a:hover {
+  transform: translateY(-1px) translateX(2px);
+  color: #000000 !important;
+  box-shadow:
+    inset 0 1px 0 0 #FFFFFF,
+    0 2px 4px 0 rgba(28, 36, 33, 0.07),
+    0 8px 16px -4px rgba(23, 107, 91, 0.22) !important;
+}
+
+.sidebar-nav-container-glow + div a:hover span {
+  color: #000000 !important;
+}
+
+.sidebar-nav-container-glow + div a[aria-current="page"] {
+  color: #000000 !important;
+  background: linear-gradient(180deg, #FFFFFF 0%, #DCEBE5 100%) !important;
+  border-color: #0F5143 !important;
+  box-shadow:
+    inset 0 1px 0 0 #FFFFFF,
+    inset 3px 0 0 0 #0F5143,
+    inset 0 -2px 4px 0 rgba(15, 81, 67, 0.08),
+    0 2px 6px 0 rgba(15, 81, 67, 0.14),
+    0 8px 18px -6px rgba(15, 81, 67, 0.35) !important;
+  transform: translateX(2px);
+}
+
+.sidebar-nav-container-glow + div a[aria-current="page"] span {
+  color: #000000 !important;
+  font-weight: 700 !important;
+}
+
+/* All sidebar text black — brand, user, labels */
+.sidebar-3d-panel p,
+.sidebar-3d-panel span,
+.sidebar-3d-panel a {
+  color: #000000;
+}
+
+.sidebar-3d-panel p span {
+  color: #000000 !important;
+}
+
+/* keep active nav icon white on emerald for contrast */
+.sidebar-3d-panel .sidebar-nav-container-glow a[aria-current="page"],
+.sidebar-3d-panel .sidebar-nav-container-glow a[aria-current="page"] svg {
+  color: #FFFFFF !important;
+}
+
+/* ---- 3D sidebar panel itself ---- */
+.sidebar-3d-panel {
+  background: linear-gradient(180deg, #FFFFFF 0%, #FAFBFA 60%, #F1F4F2 100%) !important;
+  box-shadow:
+    inset -1px 0 0 0 #FFFFFF,
+    inset -2px 0 6px -2px rgba(28, 36, 33, 0.06),
+    4px 0 18px -4px rgba(28, 36, 33, 0.12),
+    12px 0 40px -12px rgba(23, 107, 91, 0.12) !important;
+}
+
+/* 3D brand logo / avatar blocks — depth only, no glow */
+.sidebar-3d-logo {
+  border-color: #E4E7E5 !important;
+  box-shadow:
+    inset 0 1px 0 0 rgba(255, 255, 255, 0.35),
+    inset 0 -2px 4px 0 rgba(0, 0, 0, 0.18),
+    0 2px 4px 0 rgba(28, 36, 33, 0.15),
+    0 6px 14px -3px rgba(28, 36, 33, 0.25) !important;
+}
+
+/* Depth only on every other sidebar icon div: collapsed avatar, logout icon, user pill */
+.sidebar-3d-panel .rounded-full.bg-\[#DCEBE5\],
+.sidebar-3d-panel button.group > div,
+.sidebar-3d-panel header button,
+.sidebar-3d-panel img.rounded-xl {
+  box-shadow:
+    inset 0 1px 0 0 #FFFFFF,
+    0 2px 6px rgba(28, 36, 33, 0.10) !important;
+}
+
+/* 3D user + logout cards */
+.sidebar-3d-card {
+  background: linear-gradient(180deg, #FFFFFF 0%, #F2F5F4 100%) !important;
+  box-shadow:
+    inset 0 1px 0 0 #FFFFFF,
+    0 1px 2px 0 rgba(28, 36, 33, 0.06),
+    0 6px 14px -5px rgba(28, 36, 33, 0.14) !important;
+}
+
+/* Architectural Blueprint Spotlight Grid & Sonar Pulse */
+.blueprint-spotlight-grid {
+  --gx: -400px;
+  --gy: -400px;
+  background-size: 36px 36px;
+  background-image: 
+    linear-gradient(to right, rgba(23, 107, 91, 0.18) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(23, 107, 91, 0.18) 1px, transparent 1px);
+  -webkit-mask-image: radial-gradient(340px circle at var(--gx) var(--gy), black 25%, rgba(0, 0, 0, 0.4) 60%, transparent 85%);
+  mask-image: radial-gradient(340px circle at var(--gx) var(--gy), black 25%, rgba(0, 0, 0, 0.4) 60%, transparent 85%);
+  will-change: mask-image, -webkit-mask-image;
+}
+
+.grid-sonar-wave {
+  position: fixed;
+  pointer-events: none;
+  transform: translate(-50%, -50%) scale(0.1);
+  width: 50px;
+  height: 50px;
+  border: 1.5px solid #176B5B;
+  box-shadow: 0 0 16px rgba(23, 107, 91, 0.6), inset 0 0 10px rgba(16, 185, 129, 0.3);
+  animation: gridSonarPulse 0.7s cubic-bezier(0.1, 0.8, 0.25, 1) forwards;
+  z-index: 40;
+}
+
+@keyframes gridSonarPulse {
+  0% {
+    transform: translate(-50%, -50%) scale(0.1);
+    opacity: 1;
+    border-radius: 4px;
+  }
+  50% {
+    border-radius: 12px;
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(4.5);
+    opacity: 0;
+    border-radius: 20px;
+    border-color: rgba(200, 168, 107, 0.2);
+  }
+}
+
+/* Toolbar Filter Controls: Crisp High-Visibility Border & Subtle 3D Depth against slate background */
+div:has(> input[placeholder^="Search"]) select,
+div:has(> input[placeholder^="Search"]) input,
+.filter-select-enhanced {
+  border: 1.5px solid #94A3B8 !important;
+  background-color: #FFFFFF !important;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08), inset 0 1px 0 rgba(255, 255, 255, 0.9) !important;
+}
+
+div:has(> input[placeholder^="Search"]) select:hover,
+div:has(> input[placeholder^="Search"]) input:hover {
+  border-color: #176B5B !important;
+}
+
+div:has(> input[placeholder^="Search"]) select:focus,
+div:has(> input[placeholder^="Search"]) input:focus {
+  border-color: #176B5B !important;
+  box-shadow: 0 0 0 3px rgba(23, 107, 91, 0.15) !important;
+}
+
+/* Subtle Infinite Marquee */
+@keyframes marquee {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee {
+  display: flex;
+  width: max-content;
+  animation: marquee 35s linear infinite;
+}
+
+.animate-marquee:hover {
+  animation-play-state: paused;
+}
+
+/* Slow Floating Effect */
+@keyframes floatSlow {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}

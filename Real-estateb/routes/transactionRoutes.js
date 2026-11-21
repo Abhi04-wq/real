@@ -1,0 +1,12 @@
+const express = require("express");
+const c = require("../controllers/transactionController");
+const invoiceController = require("../controllers/invoiceController");
+const { protect, requirePerm, requireDecisionOrEdit } = require("../middleware/auth");
+const router = express.Router();
+router.use(protect);
+router.get("/", requirePerm("transactions.view"), c.list);
+router.post("/", requirePerm("transactions.manage"), c.create);
+router.get("/:id/invoice", invoiceController.getTransactionInvoice);
+router.get("/:id", requirePerm("transactions.view"), c.getOne);
+router.put("/:id", requireDecisionOrEdit({ decision: "transactions.manage", edit: "transactions.edit" }), c.update);
+module.exports = router;

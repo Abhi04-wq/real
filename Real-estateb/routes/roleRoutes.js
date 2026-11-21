@@ -1,0 +1,10 @@
+const express = require("express");
+const c = require("../controllers/roleController");
+const { protect, requireRole } = require("../middleware/auth");
+const router = express.Router();
+router.use(protect, requireRole("SUPER_ADMIN", "ADMIN"));
+router.get("/", c.list);
+router.post("/", c.create);
+router.put("/:id", c.update);
+router.delete("/:id", c.remove);
+module.exports = router;

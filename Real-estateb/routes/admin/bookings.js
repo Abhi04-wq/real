@@ -1,0 +1,12 @@
+const express = require("express");
+const c = require("../../controllers/bookingController");
+const { ops, requirePerm } = require("../../middleware/opsAuth");
+const { requireDecisionOrEdit } = require("../../middleware/auth");
+const router = express.Router();
+router.use(...ops);
+router.get("/", requirePerm("bookings.view"), c.list);
+router.post("/", requirePerm("bookings.edit"), c.create);
+router.get("/:id", requirePerm("bookings.view"), c.getOne);
+router.put("/:id", requireDecisionOrEdit({ decision: "bookings.approve", assign: "bookings.assign", edit: "bookings.edit" }), c.updateStatus);
+router.delete("/:id", requirePerm("bookings.edit"), c.remove);
+module.exports = router;

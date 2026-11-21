@@ -1,0 +1,15 @@
+const express = require("express");
+const c = require("../../controllers/propertyController");
+const { ops, requirePerm } = require("../../middleware/opsAuth");
+const { validate } = require("../../middleware/common");
+const { propertySchema } = require("../../utils/validators");
+const router = express.Router();
+router.use(...ops);
+router.get("/", requirePerm("properties.view"), c.list);
+router.post("/", requirePerm("properties.create"), validate(propertySchema), c.create);
+router.get("/:id", requirePerm("properties.view"), c.getOne);
+router.put("/:id", requirePerm("properties.edit"), c.update);
+router.post("/:id/approve", requirePerm("properties.approve"), c.approve);
+router.post("/:id/reject", requirePerm("properties.approve"), c.reject);
+router.delete("/:id", requirePerm("properties.delete"), c.remove);
+module.exports = router;

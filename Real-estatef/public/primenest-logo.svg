@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 240" fill="none">
+  <!-- Key and House Icon Group -->
+  <g transform="translate(140, 20)">
+    <!-- Key Head Circle with cutout hole -->
+    <path fill="#111111" fill-rule="evenodd" clip-rule="evenodd" d="M34 50 C44.5 50 53 58.5 53 69 C53 79.5 44.5 88 34 88 C23.5 88 15 79.5 15 69 C15 58.5 23.5 50 34 50 Z M34 62 C30.13 62 27 65.13 27 69 C27 72.87 30.13 76 34 76 C37.87 76 41 72.87 41 69 C41 65.13 37.87 62 34 62 Z" />
+
+    <!-- Chimney on roof slope -->
+    <path fill="#111111" d="M125 24 H136 V48 H125 Z" />
+
+    <!-- House & Roof Structure -->
+    <path fill="#111111" d="M106 12 L56 52 H68 V66 H138 L160 48 L152 42 L106 12 Z" />
+
+    <!-- Window and Door Cutouts in House (Negative Space) -->
+    <rect x="122" y="44" width="9" height="9" rx="0.5" fill="#FFFFFF" />
+    <rect x="99" y="44" width="9" height="22" rx="0.5" fill="#FFFFFF" />
+
+    <!-- Key Shaft with Lower Teeth -->
+    <path fill="#111111" d="M50 63 H168 L158 74 H150 L142 84 L134 74 H124 L116 84 L108 74 H98 L90 84 L82 74 H66 L50 74 Z" />
+
+    <!-- Slender Horizontal Key Groove (Negative Space) -->
+    <rect x="68" y="67" width="84" height="3" rx="1.5" fill="#FFFFFF" />
+  </g>
+
+  <!-- Typography: PRIMENEST PROPERTIES -->
+  <text x="250" y="185" 
+        text-anchor="middle" 
+        fill="#111111" 
+        font-family="'Plus Jakarta Sans', 'Inter', -apple-system, sans-serif" 
+        font-weight="900" 
+        font-size="28" 
+        letter-spacing="5">
+    PRIMENEST PROPERTIES
+  </text>
+</svg>

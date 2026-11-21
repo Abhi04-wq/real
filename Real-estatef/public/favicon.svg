@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" fill="none">
+  <!-- PrimeNest Properties Key & House Icon Favicon -->
+  <g fill="#111111" fill-rule="evenodd" clip-rule="evenodd">
+    <!-- Key Head Circle with cutout hole -->
+    <path d="M26 38 C33.73 38 40 44.27 40 52 C40 59.73 33.73 66 26 66 C18.27 66 12 59.73 12 52 C12 44.27 18.27 38 26 38 Z M26 47 C23.24 47 21 49.24 21 52 C21 54.76 23.24 57 26 57 C28.76 57 31 54.76 31 52 C31 49.24 28.76 47 26 47 Z" />
+    
+    <!-- House atop key -->
+    <!-- Chimney -->
+    <path d="M69 24 H74 V36 H69 Z" />
+    <!-- Roof & House body -->
+    <path d="M57 15 L32 37 H42 V50 H75 L86 37 L82 33 L57 15 Z" />
+    
+    <!-- Key Shaft with teeth and groove -->
+    <!-- Main shaft extending from key head to right -->
+    <path d="M37 47 H88 L84 53 H80 L76 58 L72 53 H67 L63 58 L59 53 H53 L49 58 L44 53 H37 V47 Z" />
+  </g>
+  <!-- Window and door cutouts inside house -->
+  <rect x="67" y="38" width="5" height="5" fill="#FFFFFF" />
+  <rect x="55" y="38" width="5" height="12" fill="#FFFFFF" />
+  <!-- Horizontal groove on key shaft -->
+  <rect x="44" y="49" width="36" height="2" fill="#FFFFFF" />
+</svg>

@@ -1,0 +1,10 @@
+const express = require("express");
+const c = require("../../controllers/customerController");
+const { ops, requirePerm } = require("../../middleware/opsAuth");
+const router = express.Router();
+router.use(...ops);
+router.get("/", requirePerm("users.view"), c.list);
+router.get("/:id", requirePerm("users.view"), c.getOne);
+router.put("/:id", requirePerm("users.edit"), c.update);
+router.post("/:id/notes", requirePerm("users.edit"), c.addNote);
+module.exports = router;

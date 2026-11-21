@@ -1,0 +1,17 @@
+const express = require("express");
+const c = require("../../controllers/leadController");
+const { ops, requirePerm } = require("../../middleware/opsAuth");
+const { validate } = require("../../middleware/common");
+const { requireAny } = require("../../middleware/auth");
+const { leadSchema } = require("../../utils/validators");
+const router = express.Router();
+router.use(...ops);
+router.get("/", requirePerm("leads.view"), c.list);
+router.post("/", requirePerm("leads.create"), validate(leadSchema), c.create);
+router.get("/:id", requirePerm("leads.view"), c.getOne);
+router.put("/:id", requirePerm("leads.edit"), c.update);
+router.post("/:id/assign", requirePerm("leads.edit"), c.update);
+router.post("/:id/notes", requireAny("leads.note", "leads.edit"), c.addNote);
+router.post("/:id/convert", requireAny("leads.convert", "leads.edit"), c.convert);
+router.delete("/:id", requirePerm("leads.delete"), c.remove);
+module.exports = router;

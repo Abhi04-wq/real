@@ -1,0 +1,13 @@
+const express = require("express");
+const c = require("../../controllers/notificationController");
+const { ops, requirePerm } = require("../../middleware/opsAuth");
+const router = express.Router();
+router.use(...ops);
+router.get("/", c.list);
+router.post("/", requirePerm("notifications.send"), c.create);
+router.patch("/read-all", c.markAllRead);
+router.patch("/:id/read", c.markRead);
+router.put("/:id/read", c.markRead);
+router.patch("/:id/toggle", c.markRead);
+router.delete("/:id", requirePerm("notifications.send"), c.remove);
+module.exports = router;

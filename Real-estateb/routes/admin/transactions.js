@@ -1,0 +1,11 @@
+const express = require("express");
+const c = require("../../controllers/transactionController");
+const { ops, requirePerm } = require("../../middleware/opsAuth");
+const { requireDecisionOrEdit } = require("../../middleware/auth");
+const router = express.Router();
+router.use(...ops);
+router.get("/", requirePerm("transactions.view"), c.list);
+router.post("/", requirePerm("transactions.manage"), c.create);
+router.get("/:id", requirePerm("transactions.view"), c.getOne);
+router.put("/:id", requireDecisionOrEdit({ decision: "transactions.manage", edit: "transactions.edit" }), c.update);
+module.exports = router;
